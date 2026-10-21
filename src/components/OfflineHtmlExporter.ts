@@ -124,6 +124,7 @@ export function generateStandaloneOfflineHtml(): string {
     <div style="padding: 16px; font-size: 11px; color: #64748b; border-top: 1px solid #1e293b;">
       <div>版本: V1.0 商业级原型</div>
       <div style="margin-top:4px;">两阶段规则遵循: 严格隔离</div>
+      <div style="margin-top:6px;"><a href="https://tutu2momo.github.com/HFCollectionBox" target="_blank" style="color: #38bdf8; text-decoration: none;">🔗 HFCollectionBox Page</a></div>
     </div>
   </aside>
 

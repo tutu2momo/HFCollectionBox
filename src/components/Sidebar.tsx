@@ -13,7 +13,8 @@ import {
   ShieldCheck, 
   AlertTriangle, 
   CheckCircle2, 
-  Radio
+  Radio,
+  ExternalLink
 } from 'lucide-react';
 import { MedicalDevice } from '../types';
 
@@ -165,15 +166,30 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* 底部业务规则提醒卡片 */}
-      <div className="p-3 border-t border-slate-800/80 bg-slate-950/60">
+      <div className="p-3 border-t border-slate-800/80 bg-slate-950/60 space-y-2">
         <div className="bg-slate-900/90 border border-slate-800 rounded-md p-2.5 text-[11px] text-slate-400 leading-relaxed">
-          <div className="text-blue-400 font-semibold mb-1 flex items-center gap-1">
+          <div className="text-blue-400 font-semibold mb-1 flex items-center justify-between">
             <span>🛡️ 规则铁律 (禁止混淆)</span>
           </div>
           <p>
             • <strong className="text-slate-300">一键巡检</strong>：仅批量查近5分DB入库，禁自动Ping与连盒子。<br />
             • <strong className="text-slate-300">单项诊断</strong>：同盒它线有数据跳过Ping；无数据才Ping。
           </p>
+        </div>
+
+        {/* 项目 Page 引用链接 */}
+        <div className="px-1 flex items-center justify-between text-[11px] text-slate-500">
+          <span>项目 Page:</span>
+          <a
+            href="https://tutu2momo.github.com/HFCollectionBox"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-mono transition"
+            title="HFCollectionBox Page"
+          >
+            <span>HFCollectionBox</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
         </div>
       </div>
     </aside>

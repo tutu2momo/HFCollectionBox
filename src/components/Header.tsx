@@ -11,7 +11,8 @@ import {
   Share2, 
   Sliders, 
   Layers, 
-  RefreshCw 
+  RefreshCw,
+  ExternalLink
 } from 'lucide-react';
 import { generateStandaloneOfflineHtml } from './OfflineHtmlExporter';
 
@@ -103,12 +104,24 @@ export const Header: React.FC<HeaderProps> = ({
         {/* 导出独立离线单HTML */}
         <button
           onClick={handleExportOfflineHtml}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-emerald-50 text-emerald-700 border border-emerald-300 hover:bg-emerald-100 transition"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-emerald-50 text-emerald-700 border border-emerald-300 hover:bg-emerald-100 transition cursor-pointer"
           title="生成独立单文件HTML，可发给甲方双击脱网运行"
         >
           <Download className="w-3.5 h-3.5 text-emerald-600" />
           <span>下载独立离线HTML</span>
         </button>
+
+        {/* 项目 Page 引用 */}
+        <a
+          href="https://tutu2momo.github.com/HFCollectionBox"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200 transition border border-slate-200"
+          title="访问项目主页: https://tutu2momo.github.com/HFCollectionBox"
+        >
+          <ExternalLink className="w-3.5 h-3.5 text-blue-600" />
+          <span>项目 Page</span>
+        </a>
 
         {/* 批量巡检核心按钮 */}
         {activeTab === 'overview' && (
