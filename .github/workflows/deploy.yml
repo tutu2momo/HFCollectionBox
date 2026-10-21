@@ -1,0 +1,46 @@
+name: Deploy GitHub Pages to page branch
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+# 设置权限以允许向分支写入代码
+permissions:
+  contents: write
+
+concurrency:
+  group: 'pages-${{ github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码 (Checkout)
+        uses: actions/checkout@v4
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 安装项目依赖 (Install dependencies)
+        run: npm install
+
+      - name: 构建生产包 (Build)
+        run: npm run build
+
+      - name: 防止 GitHub Pages Jekyll 忽略特殊资源
+        run: touch dist/.nojekyll
+
+      - name: 自动提交并发布到 page 分支 (Deploy to page branch)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: page
+          folder: dist
+          clean: true
+          commit-message: "chore(release): deploy to page branch [skip ci]"
