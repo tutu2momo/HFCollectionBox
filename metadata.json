@@ -1,0 +1,6 @@
+{
+  "name": "医疗设备数据采集批量巡检与单项诊断系统",
+  "description": "面向医疗物联网与临床手术室的高保真批量巡检、两阶段链路诊断与运维闭环工作台",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
